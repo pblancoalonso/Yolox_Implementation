@@ -1,0 +1,29 @@
+﻿{
+  "configurations": [
+    {
+      "name": "Linux-GCC-Release",
+      "generator": "Unix Makefiles",
+      "configurationType": "Release",
+      "cmakeExecutable": "cmake",
+      "remoteCopySourcesExclusionList": [ ".vs", ".git", "out" ],
+      "cmakeCommandArgs": "",
+      "buildCommandArgs": "",
+      "ctestCommandArgs": "",
+      "inheritEnvironments": [ "linux_x64" ],
+      "remoteMachineName": "-425868069;127.0.0.1 (username=root, port=2222, authentication=Password)",
+      "remoteCMakeListsRoot": "/root/Yolox_CMake",
+      "remoteBuildRoot": "/root/Yolox_CMake/out/build/${name}",
+      "remoteInstallRoot": "/root/Yolox_CMake/out/install/${name}",
+      "remoteCopySources": true,
+      "rsyncCommandArgs": "-t --delete --delete-excluded",
+      "remoteCopyBuildOutput": false,
+      "remoteCopySourcesMethod": "rsync"
+    }
+  ],
+  "environments": [
+    {
+      "OpenCV_DIR": "/opt/intel/openvino_2021/opencv/cmake",
+      "InferenceEngine_DIR": "/opt/intel/openvino_2021/deployment_tools/inference_engine/share"
+    }
+  ]
+}
