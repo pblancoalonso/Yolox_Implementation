@@ -1,4 +1,4 @@
-# Yolox_Implementation
+# Yolox Implementation
 Implementation of various Yolox models in C++.
 
 # Requisites needed for implementation
