@@ -17,6 +17,15 @@ int main() {
 
 	jsonParser.parseConfig("/opt/configuration/Config.json");
 
+	// Print information.
+
+	std::cout << " - Using video : " << jsonParser.VideoPath <<std::endl;
+	std::cout << " - Using model : " << jsonParser.ModelPath <<std::endl;
+	std::cout << " - Using device : " << jsonParser.InferenceDevice <<std::endl;
+	std::cout << " - Is Recording? : ";
+	(jsonParser.IsRecording) ? std::cout << "YES" << "\n" : std::cout << "NO" << "\n";
+	std::cout << " - Recording path : " << jsonParser.OutputPath <<std::endl;
+
 	// Load Vars
 
 	det.device_name = jsonParser.InferenceDevice;
