@@ -1,0 +1,7 @@
+{
+  "inputPath": "/opt/samples/videos/sample_2.mp4",
+  "isRecording": true,
+  "modelPath": "/opt/models/yolox_s/yolox_s.xml",
+  "outputPath": "/opt/recordings/output.avi",
+  "inferenceDevice":  "CPU"
+}

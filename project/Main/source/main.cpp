@@ -1,37 +1,58 @@
 #include <Detector.h>
+#include <Parser.h>
+
+bool validInput(std::string name) {
+	return name.find(".json") != -1;
+}
 
 int main() {
-    // Instantiate detector
-    
-    Detector det;
 
-    /*cv::namedWindow("Result");
-    cv::setWindowProperty("Result", cv::WND_PROP_FULLSCREEN, cv::WINDOW_FULLSCREEN);*/
+	// Instantiate detector  
 
-    cv::VideoCapture Video("/opt/samples/videos/sample_2.mp4");
+	Detector det;
 
-    if (!Video.isOpened()) {
-        std::cout << "Error opening video" << std::endl;
-        return -1;
-    }
+	// Instantiate JSON Parser and load Config
 
-    cv::VideoWriter Writer;
-    // If recording enabled
-    cv::Mat DummyFrame;
-    Video.read(DummyFrame);
-    Writer = cv::VideoWriter("/opt/output.avi", cv::VideoWriter::fourcc('F', 'M', 'P', '4'), Video.get(cv::CAP_PROP_FPS), cv::Size(DummyFrame.cols, DummyFrame.rows));
+	Parser jsonParser;
 
+	jsonParser.parseConfig("/opt/configuration/Config.json");
 
-    while(true){
-        cv::Mat Frame;
-        bool IsNotLastFrame = Video.read(Frame);
-        if(!IsNotLastFrame){
-            std::cout << "No more frames to be processed" << std::endl;
-            break;
-        }
-        cv::Mat test = det.run(Frame);
-        Writer.write(test);
-    }
+	// Load Vars
 
-    return 0;
+	det.device_name = jsonParser.InferenceDevice;
+	det.input_model = jsonParser.ModelPath;
+
+	// Instantiate VideoCapturer
+
+	cv::VideoCapture Video(jsonParser.VideoPath);
+
+	if (!Video.isOpened()) {
+		std::cout << "Error opening video" << std::endl;
+		return -1;
+	}
+
+	cv::VideoWriter Writer;
+
+	// Check if recording is enabled
+
+	if (jsonParser.IsRecording) {
+		cv::Mat DummyFrame;
+		Video.read(DummyFrame);
+		Writer = cv::VideoWriter(jsonParser.OutputPath, cv::VideoWriter::fourcc('F', 'M', 'P', '4'), Video.get(cv::CAP_PROP_FPS), cv::Size(DummyFrame.cols, DummyFrame.rows));
+	}
+
+	// Main Loop
+
+	while (true) {
+		cv::Mat Frame;
+		bool IsNotLastFrame = Video.read(Frame);
+		if (!IsNotLastFrame) {
+			std::cout << "No more frames to be processed" << std::endl;
+			break;
+		}
+		cv::Mat FrameToRecord = det.run(Frame);
+		Writer.write(FrameToRecord);
+	}
+
+	return 0;
 }

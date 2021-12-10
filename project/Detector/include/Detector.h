@@ -24,14 +24,14 @@ public:
 
 	//VARS
 
-	const int INPUT_W = 640;
-	const int INPUT_H = 640;
+	int INPUT_W;
+	int INPUT_H;
 	const int NUM_CLASSES = 80;
 	const float NMS_THRESH = 0.45f;
 	const float BBOX_CONF_THRESH = 0.3f;
-	const std::string input_model = "/opt/models/yolox_s/yolox_s.xml";
-	const std::string device_name = "CPU";
-	const std::vector<int> desired_classes = {0, 2};
+	std::string input_model;
+	std::string device_name;
+	const std::vector<int> desired_classes = {0, 2, 5};
 
 	//METHODS
 	cv::Mat staticResize(cv::Mat& img);

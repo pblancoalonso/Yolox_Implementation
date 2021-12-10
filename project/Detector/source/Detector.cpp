@@ -390,6 +390,10 @@ cv::Mat Detector::run(cv::Mat& Frame) {
 	InferenceEngine::InputInfo::Ptr input_info = network.getInputsInfo().begin()->second;
 	std::string input_name = network.getInputsInfo().begin()->first;
 
+	std::vector<size_t> InputDims = input_info.get()->getTensorDesc().getDims();
+	INPUT_W = InputDims[3];
+	INPUT_H = InputDims[2];
+
 	// Prepare output blobs
 
 	if (network.getOutputsInfo().empty()) {
