@@ -330,8 +330,8 @@ cv::Mat Detector::drawObjects(const cv::Mat& bgr, const std::vector<Object>& obj
 	{
 		const Object& obj = objects[i];
 
-		fprintf(stderr, "%d = %.5f at %.2f %.2f %.2f x %.2f\n", obj.label, obj.prob,
-			obj.rect.x, obj.rect.y, obj.rect.width, obj.rect.height);
+		/*fprintf(stderr, "%d = %.5f at %.2f %.2f %.2f x %.2f\n", obj.label, obj.prob,
+			obj.rect.x, obj.rect.y, obj.rect.width, obj.rect.height);*/
 
 		cv::Scalar color = cv::Scalar(color_list[obj.label][0], color_list[obj.label][1], color_list[obj.label][2]);
 		float c_mean = cv::mean(color)[0];
