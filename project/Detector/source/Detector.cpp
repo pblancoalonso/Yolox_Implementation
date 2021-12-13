@@ -441,6 +441,7 @@ cv::Mat Detector::run(cv::Mat& Frame) {
 
 	decodeOutputs(net_pred, objects, scale, img_w, img_h);
 	cv::Mat proc_frame = drawObjects(Frame, objects);
+
 	return(proc_frame);
 }
 

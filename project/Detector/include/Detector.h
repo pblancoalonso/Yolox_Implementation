@@ -31,7 +31,7 @@ public:
 	const float BBOX_CONF_THRESH = 0.3f;
 	std::string input_model;
 	std::string device_name;
-	const std::vector<int> desired_classes = {0, 2, 5};
+	const std::vector<int> desired_classes = {0, 1, 2, 3, 5, 7, 9, 11};
 
 	//METHODS
 	cv::Mat staticResize(cv::Mat& img);
@@ -43,8 +43,6 @@ public:
 	inline float intersectionArea(const Object& a, const Object& b);
 	void nmsSortedBBoxes(const std::vector<Object>& faceobjects, std::vector<int>& picked, float nms_threshold);
 	void decodeOutputs(const float* prob, std::vector<Object>& objects, float scale, const int img_w, const int img_h);
-	//void drawObjects(const cv::Mat& bgr, const std::vector<Object>& objects);
-	//void run(cv::Mat &Frame);
 	cv::Mat drawObjects(const cv::Mat& bgr, const std::vector<Object>& objects);
 	cv::Mat run(cv::Mat& Frame);
 };
