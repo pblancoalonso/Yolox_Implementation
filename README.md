@@ -1,6 +1,16 @@
 # Yolox Implementation
 Implementation of various Yolox models in C++.
 
+# Technologies used
+
+- Modelos de YoloX. (Yolox-s, Yolox-tiny, Yolox-nano)
+- OpenVINO e OpenCV.
+- Visual Studio 2022.
+- Docker.
+- XLaunch / XMing.
+- PuTTy.
+- CMake.
+
 # Requisites needed for implementation
 
 - Docker.
@@ -36,4 +46,11 @@ Implementation of various Yolox models in C++.
 
 - Navigate to /root/Yolo_CMake/bin
 
-- and use ./main to run the application.
+- Finally use ./main to run the application.
+
+## _Inside /opt/ there are three important folders._
+
+  - /opt/samples/videos ==> All the video samples are located here.
+  - /opt/configurations ==> Here is the Config.json for the application, you can change the video that is used and the model.
+  - /opt/models ==> All the three models used are located here
+
