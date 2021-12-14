@@ -6,8 +6,8 @@ Implementation of various Yolox models in C++.
 - Docker.
 - Ubuntu image.
 - XLauch / XMing installed in host machine.
-- Visual Studio 2022.
 - PuTTy configured to use X11 over SSH.
+- Visual Studio 2022.
 
 ## Installation
 
