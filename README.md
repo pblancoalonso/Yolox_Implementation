@@ -9,7 +9,7 @@ Implementation of various Yolox models in C++.
 - PuTTy configured to use X11 over SSH.
 - Visual Studio 2022.
 
-## Installation
+# Installation
 
 - Download the ubuntu image from the link.
   - https://mega.nz/file/jQknlQiK#IZl_IN6hlW1F8itC03bRN86k8Z0Bf9tx80lEaCiEvLU
